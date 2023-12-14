@@ -49,12 +49,6 @@ The project utilizes the following technologies:
 
 To set up and run the Library Management System project on your local machine, follow these steps:
 
-1. Clone the repository from GitHub:
-
-   ```bash
-   git clone https://github.com/narendra-singh-chauhan/library-management-system.git
-
-   ```
 
 2. Install dependencies for both the frontend and backend. Navigate to the project directory and run the following commands:
 
