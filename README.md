@@ -1,59 +1,122 @@
 # Library Management System
 
->Manage a public library. This is an automated system for library management.
-
-
-## Development
-The backend of the system is developed on **[Laravel 4.2 PHP MVC Framework](http://laravel.com/)** and requires PHP 5.6 with the appropriate MCrypt extension.
-The front end is built on **[Edmin Responsive Bootstrap Admin Template](http://egrappler.com/responsive-bootstrap-admin-template-edmin/)** ([Demo](http://www.egrappler.com/edmin/index.html)) which is built on [Bootstrap v2.2.2](http://bootstrapdocs.com/v2.2.2/docs/) using [jQuery](https://blog.jquery.com/2013/02/04/jquery-1-9-1-released/) and [Underscore-Dot-JS](http://underscorejs.org/)
-
-
-
-
-
-**MySQL setup**
-
-* Open this link to [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
-
-* Scroll to the bottom and select *Microsoft Windows* in the *Select your Operating System* dropdown.
-
-* Click *download* button in front of *Windows (x86, 64-bit), MSI Installer* at the bottom.
-
-* Right-click the downloaded MSI file and select the Install item from the pop-up menu, or double-click the file.
-
-* In the Setup Type window you may choose a Complete or Custom installation. To use all features of MySQL Workbench choose the Complete option.
-
-* Unless you choose otherwise, MySQL Workbench is installed in `C:\%PROGRAMFILES%\MySQL\MySQL Workbench 8.0 edition_type\`, where `%PROGRAMFILES%` is the default directory for programs for your locale. The `%PROGRAMFILES%` directory is defined as `C:\Program Files\` on most systems.
-
-
-
-
-* **NOTE:** If your PHP version is not compatible with `mcrypt` you will receive an error here. Do not worry, simply perform these additional two steps:
- * `C:/path/to/xampp5.6.33/php/php.exe artisan clear-compiled`
- * `C:/path/to/xampp5.6.33/php/php.exe artisan cache:clear`
-
-* Create a table for the app via phpmyadmin (or however you prefer);
-
-* Edit `app/config/mysql.config.php.sample` according to your MySQL configurations and save it in the same directory as `mysql.config.php`;
-
-* `php artisan migrate`
-
- **OR IF YOUR PHP IS NOT `mcrypt` COMPATIBLE:**
-
- `C:/path/to/xampp5.6.33/php/php.exe artisan migrate`
-
-* `php artisan serve`
-
- **OR IF YOUR PHP IS NOT `mcrypt` COMPATIBLE:**
-
- `C:/path/to/xampp5.6.33/php/php.exe artisan serve`
+The Library Management System is a MERN (MongoDB, Express.js, React.js, Node.js) stack project designed to facilitate the management of libraries. It provides a user-friendly interface for library users, librarians, and administrators to perform various tasks efficiently. This README file serves as a guide to set up and understand the project.
 
 ## Features
- + Librarians can be given their authorized login ID and password without which the system can not be accessed.
- + Students can only access limited features, i.e., public access level features which include **searching a book** and **student registration form**.
- + After logging in librarians can search for a specific book, book issue or student from the home panel.
- + Librarians need to make an entry for new books. To automate the process they simply need to enter the number of issues, then the Issue ID for each book issue is generated automatically.
- + Another responsibility of a librarian is to approve students in situations where approval is needed, i.e. where documents are to be verified or some manual work. Librarians have a panel to simply approve / reject students and to view all approved students. The librarian ID is stored alongside each approved/rejected student to keep track.
- + The most important function of any library is to issue and return books. This system includes a panel to view all outstanding logs and a super simple panel to issue and return books for all librarians.
 
+### Authentication and Authorization
 
+- **Sign Up & Sign In**: Users can create an account and sign in to access the system.
+- **Role-based Access Control**: The system supports different roles, including User, Librarian, and Admin. Each role has specific permissions and restrictions.
+- **Access Tokens and Refresh Tokens**: User authentication is implemented using access and refresh tokens for secure and seamless user experience.
+
+### User Features
+
+- **List of Libraries**: Users can view a list of available libraries.
+- **List of Books**: Users can browse books available in the libraries.
+- **Borrow Books**: Users can request to borrow books from a library.
+- **Return Books**: Users can return borrowed books to the respective library.
+- **Review Books**: Users can provide feedback and reviews for books they have read.
+
+### Librarian Features
+
+- **Manage Own Library**: Librarians can oversee and manage their assigned library.
+- **Manage Books in Library**: Librarians can add, update, and remove books from their library's inventory.
+- **Manage Borrowed and Returned Books**: Librarians can track borrowed and returned books within their library.
+- **Manage Borrow Process**: Librarians handle the borrowing process, verifying requests, and maintaining records.
+
+### Admin Features
+
+- **Manage Libraries**: Administrators have control over the overall library system and can manage libraries.
+- **Assign Librarian**: Admins can assign librarians to specific libraries.
+- **Manage Members**: Admins can manage member accounts and profiles.
+- **Generate and Analyze Metrics**: Admins can access and analyze various metrics related to members and libraries.
+
+## Technology Stack
+
+The project utilizes the following technologies:
+
+- Frontend:
+  - Vite: A fast and efficient frontend build tool.
+  - TypeScript: A statically-typed superset of JavaScript for enhanced development experience.
+  - React.js: A popular JavaScript library for building user interfaces.
+- Backend:
+  - Node.js: A server-side JavaScript runtime environment.
+  - Express.js: A minimalist web application framework for Node.js.
+  - MongoDB: A NoSQL document database for data storage and retrieval.
+
+## Getting Started
+
+To set up and run the Library Management System project on your local machine, follow these steps:
+
+1. Clone the repository from GitHub:
+
+   ```bash
+   git clone https://github.com/narendra-singh-chauhan/library-management-system.git
+
+   ```
+
+2. Install dependencies for both the frontend and backend. Navigate to the project directory and run the following commands:
+
+   ```bash
+   # Install frontend dependencies
+   cd frontend
+   npm install
+
+   # Install backend dependencies
+   cd ../backend
+   npm install
+
+   ```
+
+3. Configure the environment variables:
+
+   - For the frontend, create a .env file in the frontend directory and set the appropriate environment variables required for the frontend application.
+
+   - For the backend, create a .env file in the backend directory and set the necessary environment variables required for the backend server.
+
+4. Start the development servers:
+
+   ```bash
+   # Start the frontend development server
+   cd frontend
+   npm run dev
+
+   # Start the backend server
+   cd ../backend
+   npm run dev
+
+   ```
+
+5. Access the Library Management System in your browser:
+
+   - Open your browser and navigate to http://localhost:3000 to access the application.
+
+## Folder Structure
+
+The project follows a structured folder organization:
+
+1. frontend: Contains the frontend application's source code.
+2. backend: Contains the backend server's source code.
+3. docs: Includes project-related documentation, such as this README file.
+
+## Contribution
+
+Contributions to the Library Management System project are welcome. If you have any suggestions, improvements, or bug fixes, feel free to submit a pull request. Please ensure adherence to coding standards, write unit tests where applicable, and provide detailed commit messages.
+
+## License
+
+The Library Management System project is open-source and released under the MIT License. You can freely use, modify, and distribute the codebase as per the license terms.
+
+## Acknowledgments
+
+We would like to acknowledge the following technologies and resources that have contributed to the development of the Library Management System:
+
+    - Vite
+    - TypeScript
+    - React.js
+    - Node.js
+    - Express.js
+    - MongoDB
+
+Special thanks to all the contributors and developers involved in creating and maintaining these technologies.
